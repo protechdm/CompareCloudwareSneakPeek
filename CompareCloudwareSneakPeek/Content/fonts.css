@@ -1,0 +1,327 @@
+﻿.font-normal-11px-black
+{
+    font-size: 11px;
+    font-weight: normal;
+    font-style: normal;
+    color: #666666;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.font-normal-12px-black
+{
+    font-size: 12px;
+    font-weight: normal;
+    font-style: normal;
+    color: #666666;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.font-normal-11px-purple
+{
+    font-size: 11px;
+    font-weight: normal;
+    font-style: normal;
+    color: #800080;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.font-normal-13px-purple
+{
+    font-size: 13px;
+    font-weight: normal;
+    font-style: normal;
+    color: #800080;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.font-normal-13px-black
+{
+    font-size: 13px;
+    font-weight: normal;
+    font-style: normal;
+    color: #666666;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.font-normal-13px-blue
+{
+    font-size: 13px;
+    font-weight: normal;
+    font-style: normal;
+    color: #6699FF;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.font-normal-11px-blue
+{
+    font-size: 11px;
+    font-weight: normal;
+    font-style: normal;
+    color: #6699FF;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.font-normal-11px-red
+{
+    font-size: 11px;
+    font-weight: normal;
+    font-style: normal;
+    color: #FC371B;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.font-normal-13px-red
+{
+    font-size: 13px;
+    font-weight: normal;
+    font-style: normal;
+    color: #FC371B;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.font-normal-11px-white
+{
+    font-size: 11px;
+    font-weight: normal;
+    font-style: normal;
+    color: #FFFFFF;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.font-bold-11px-white
+{
+    font-size: 11px;
+    font-weight: bold;
+    font-style: normal;
+    color: #FFFFFF;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.font-normal-22px-purple
+{
+    font-size: 22px;
+    font-weight: normal;
+    font-style: normal;
+    color: #800080;
+}
+
+.font-normal-22px-black
+{
+    font-size: 22px;
+    font-weight: normal;
+    font-style: normal;
+    color: #666666;
+}
+
+.font-bold-22px-black
+{
+    font-size: 22px;
+    font-weight: bold;
+    font-style: normal;
+    color: #666666;
+}
+
+.font-bold-11px-purple
+{
+    font-size: 11px;
+    font-weight: bold;
+    font-style: normal;
+    color: #800080;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.font-bold-22px-purple
+{
+    font-size: 22px;
+    font-weight: bold;
+    font-style: normal;
+    color: #800080;
+}
+
+.font-bold-13px
+{
+    font-size: 13px;
+    font-weight: bold;
+    font-style: normal;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+
+
+/* ADD FONT COLOUR */
+.font-normal-14px-blue
+{
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    color: #6699FF;
+    /*font-family: Arial, Helvetica, sans-serif;*/
+}
+
+.font-bold-14px-blue
+{
+    font-size: 14px;
+    font-weight: bold;
+    font-style: normal;
+    color: #6699FF;
+    /*font-family: Arial, Helvetica, sans-serif;*/
+}
+
+.font-normal-15px-blue
+{
+    font-size: 15px;
+    font-weight: normal;
+    font-style: normal;
+    color: #6699FF;
+    /*font-family: Arial, Helvetica, sans-serif;*/
+}
+
+.font-bold-15px-blue
+{
+    font-size: 15px;
+    font-weight: bold;
+    font-style: normal;
+    color: #6699FF; 
+    /*font-family: Arial, Helvetica, sans-serif;*/
+}
+
+.font-bold-12px-purple
+{
+    font-size: 12px;
+    font-weight: bold;
+    font-style: normal;
+    color: #800080;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.font-bold-13px-purple
+{
+    font-size: 13px;
+    font-weight: bold;
+    font-style: normal;
+    color: #800080;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.font-bold-14px-purple
+{
+    font-size: 14px;
+    font-weight: bold;
+    font-style: normal;
+    color: #800080;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.font-bold-15px-purple
+{
+    font-size: 15px;
+    font-weight: bold;
+    font-style: normal;
+    color: #800080;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.font-bold-11px-black
+{
+    font-size: 11px;
+    font-weight: bold;
+    font-style: normal;
+    color: #666666;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.font-bold-12px-black
+{
+    font-size: 12px;
+    font-weight: bold;
+    font-style: normal;
+    color: #666666;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.font-bold-13px-black
+{
+    font-size: 13px;
+    font-weight: bold;
+    font-style: normal;
+    color: #666666;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.font-normal-18px-black
+{
+    font-size: 18px;
+    font-weight: normal;
+    font-style: normal;
+    color: #666666;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.font-bold-18px-black
+{
+    font-size: 18px;
+    font-weight: bold;
+    font-style: normal;
+    color: #666666;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.font-normal-13px-white
+{
+    font-size: 13px;
+    font-weight: normal;
+    font-style: normal;
+    color: #FFFFFF;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.font-normal-15px-white
+{
+    font-size: 15px;
+    font-weight: normal;
+    font-style: normal;
+    color: #FFFFFF;
+}
+
+.font-22px-white
+{
+    font-size: 22px;
+    font-weight: normal;
+    font-style: normal;
+    color: #FFFFFF;
+}
+
+.font-bold-13px-white
+{
+    font-size: 13px;
+    font-weight: bold;
+    font-style: normal;
+    color: #FFFFFF;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.font-normal-15px-purple
+{
+    font-size: 15px;
+    font-weight: normal;
+    font-style: normal;
+    color: #800080;
+}
+
+.line-height-17px
+{
+    display:block;
+    line-height:17px;   
+}
+
+.line-height-15px
+{
+    line-height:15px;   
+}
+
+.line-height-20px
+{
+    line-height:20px;   
+}

@@ -1,0 +1,218 @@
+﻿@model CompareCloudwareSneakPeak.Models.SneakPeekVideoModel
+
+<script>
+    $(document).ready(function () {
+        $(".dialog-background").css("display", "block");
+    });
+</script>
+
+@{var fudgePath = Model.FudgeImagePath;}
+<div class="dialog-background">
+    @*<body data-twttr-rendered="true">*@
+    <table width="980" cellspacing="0" cellpadding="0" border="0" align="center">
+    <tbody>
+        <tr>
+            <td width="646">
+                <img width="319" height="77" style="margin-top: 30px; margin-bottom: 30px;" alt="compare cloudware" src="@Url.Content("~/latest/CCW_Logo.png")">
+            </td>
+            <td width="334" valign="top" align="right">
+                <a target="_blank" style="color:#FFFFFF;" href="http://twitter.com/#!/compcloudware">
+                    <img border="0" class="socialize" alt="Twitter" src="../Images/CCW_twitter.png">
+                </a>
+                <a target="_blank" style="color:#FFFFFF;" href="http://www.linkedin.com/groups?home=&amp;gid=4002249&amp;trk=anet_ug_hm">
+                    <img border="0" class="socialize" alt="LinikedIn" src="../Images/CCW_linkedin.png">
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td valign="top">
+                <div class="wrapper">
+                    <img width="605" height="475" class="logo" src="../Images/CCW_character2.gif">
+                </div>
+                <p>&nbsp;</p>
+            </td>
+            <td valign="top"><p class="purple"><strong>Select your area below to register your interest.</strong></p>
+                <table width="100%" cellspacing="0" cellpadding="0" border="0" class="smalltxt">
+                    <tbody>
+                        <tr>
+                            <td width="15%" valign="top">
+                                <a onclick="document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'" href="javascript:void(0)">
+                                    <img width="35" height="25" border="0" style="border: 0px; margin: 0px;" alt="For Users" src="../Images/CCW_cloudarrow_blue.gif">
+                                </a>
+                            </td>
+                            <td width="85%" valign="top">
+                                <a class="forusers" onclick="document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'" href="javascript:void(0)">For Users</a>
+                                <br>
+                                <a class="greylink" onclick="document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'" href="javascript:void(0)">Compare, choose and use</a> what works for you - whether you're an experienced user or a beginner.
+                             </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img width="20" height="25" alt="" src="../Images/spacer.gif">
+                            </td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td valign="top">
+                                <a onclick="document.getElementById('light2').style.display='block';document.getElementById('fade').style.display='block'" href="javascript:void(0)">
+                                    <img width="35" height="25" border="0" src="../Images/CCW_cloudarrow_purple.gif">
+                                </a>
+                            </td>
+                            <td>
+                                <a class="forproviders" onclick="document.getElementById('light2').style.display='block';document.getElementById('fade').style.display='block'" href="javascript:void(0)">For Providers</a>
+                                <br>
+                                <a class="greylink" onclick="document.getElementById('light2').style.display='block';document.getElementById('fade').style.display='block'" href="javascript:void(0)">Create and manage</a> the best shop window for your cloud products, services or solutions. Providers include Software Vendors, Software-as-a-Service(SaaS) Providers and Communication Suppliers. 
+                                <br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img width="20" height="25" alt="" src="../Images/spacer.gif">
+                            </td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td valign="top">
+                            <a onclick="document.getElementById('light3').style.display='block';document.getElementById('fade').style.display='block'" href="javascript:void(0)">
+                                <img width="35" height="25" border="0" src="../Images/CCW_cloudarrow_pink.gif">
+                            </a>
+                        </td>
+                            <td>
+                            <a class="forsponsors" onclick="document.getElementById('light3').style.display='block';document.getElementById('fade').style.display='block'" href="javascript:void(0)">For Sponsors</a>
+                            <br>
+                            <a class="greylink" onclick="document.getElementById('light3').style.display='block';document.getElementById('fade').style.display='block'" href="javascript:void(0)">Promote</a> your cloud-related products, services or solutions. Sponsors include Resellers, Hardware Vendors, Cloud Support Service Providers and more. 
+                            <br>
+                        </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            <img width="20" height="25" alt="" src="../Images/spacer.gif">
+                        </td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td valign="top">
+                            <a onclick="document.getElementById('light4').style.display='block';document.getElementById('fade').style.display='block'" href="javascript:void(0)">
+                                <img width="35" height="25" border="0" src="../Images/CCW_cloudarrow_grey.gif">
+                            </a>
+                        </td>
+                            <td>
+                            <a class="formedia" onclick="document.getElementById('light4').style.display='block';document.getElementById('fade').style.display='block'" href="javascript:void(0)">For Media/Analysts/
+                            <br>
+                            Consultants
+                            </a>
+                            <br>
+                            <a class="greylink" onclick="document.getElementById('light4').style.display='block';document.getElementById('fade').style.display='block'" href="javascript:void(0)">Find out
+                            </a> what we're doing to grow the cloud market. For opinion formers, commentators and strategists.
+                        </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>
+    <table width="980" cellspacing="0" cellpadding="0" border="0" align="center">
+    <tbody>
+        <tr>
+            <td width="635" valign="top" class="maintxt">
+                <div style="width: 560px;">Compare Cloudware cuts through the hype and confusion of choosing
+                pay as you go software and services. We're the first website to recognise
+                the importance of choice, independent advice and easy access to cloud
+                providers. As the complete one-stop resource for research, comparison
+                and selection, we're opening the cloud for business.
+                </div>
+            </td>
+            <td width="350" valign="top" align="right">
+                <table width="350" cellspacing="0" cellpadding="0" border="0" align="right" class="followus">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <table width="94%" cellspacing="0" cellpadding="0" border="0" align="center" style="margin-top: 25px;" class="smalltxt">
+                                    <tbody>
+                                        <tr>
+                                            <td width="12%" valign="top" align="left">
+                                                <a target="_blank" href="http://twitter.com/#!/compcloudware">
+                                                    <img width="31" height="31" border="0" alt="Twitter" src="../Images/twitter.gif">
+                                                </a>
+                                            </td>
+                                            <td width="88%" valign="top" align="left">Get the news and updates on everything cloudware - <a data-show-count="false" class="pinklink" target="_blank" href="http://twitter.com/#!/compcloudware">@@compcloudware</a>
+                                                <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td valign="top" align="left" colspan="2">
+                                                <img width="10" height="10" src="../Images/spacer.gif">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td valign="top" align="left">
+                                                <a target="_blank" href="http://www.linkedin.com/groups?home=&amp;gid=4002249&amp;trk=anet_ug_hm">
+                                                    <img width="30" height="30" border="0" alt="LinkedIn" src="../Images/linkedin.gif">
+                                                </a>
+                                            </td>
+                                            <td valign="top" align="left">Join our community of cloud professionals - 
+                                                <a class="pinklink" target="_blank" href="http://www.linkedin.com/groups?home=&amp;gid=4002249&amp;trk=anet_ug_hm">
+                                                  <br>
+                                                    Cloud Business Builders
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>
+    <p>&nbsp;</p>
+    <div class="footer">
+    <table width="980" cellspacing="0" cellpadding="0" border="0" align="center" class="footertxt">
+        <tbody>
+            <tr>
+                <td width="635" valign="bottom">Contact  | 
+                    <a onclick="document.getElementById('light5').style.display='block';document.getElementById('fade').style.display='block', top.frames['yes5'].location.href = 'privacy2.php';" href="javascript:void(1)">Privacy policy</a>
+                     | Terms of use
+                </td>
+                <td valign="bottom">&copy; Copyright Compare Cloudware.com  All Rights Reserved.</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+    <p></p>
+</div>
+@Html.Partial("PlayVideo",Model)
+
+@*<div class="white_content2" id="light5">
+<a onclick="document.getElementById('light5').style.display='none';document.getElementById('fade').style.display='none'" href="javascript:void(1)"><img width="30" height="29" border="0" class="close" src="images/x.gif"></a>
+<iframe width="100%" scrolling="no" height="600" frameborder="0" allowtransparency="true" style="border: 0px; overflow:hidden; margin: 0px;" name="yes5" src="#">
+</iframe>
+</div> 
+<div class="white_content2" id="light4">
+<a onclick="document.getElementById('light4').style.display='none';document.getElementById('fade').style.display='none'" href="javascript:void(0)"><img width="30" height="29" border="0" class="close" src="images/x.gif"></a>
+<iframe width="100%" scrolling="no" height="600" frameborder="0" allowtransparency="true" style="border: 0px; overflow:hidden; margin: 0px;" name="yes4" src="media.php">
+</iframe>
+</div> 
+<div class="white_content2" id="light3">
+<a onclick="document.getElementById('light3').style.display='none';document.getElementById('fade').style.display='none'" href="javascript:void(0)"><img width="30" height="29" border="0" class="close" src="images/x.gif"></a>
+<iframe width="100%" scrolling="no" height="600" frameborder="0" allowtransparency="true" style="border: 0px; overflow:hidden; margin: 0px;" name="yes3" src="sponsors.php">
+</iframe>
+</div> 
+<div class="white_content2" id="light2">
+<a onclick="document.getElementById('light2').style.display='none';document.getElementById('fade').style.display='none'" href="javascript:void(0)"><img width="30" height="29" border="0" class="close" src="images/x.gif"></a>
+<iframe width="100%" scrolling="no" height="600" frameborder="0" allowtransparency="true" style="border: 0px; overflow:hidden; margin: 0px;" name="yes2" src="providers.php">
+</iframe>
+</div>              
+<div class="white_content" id="light">
+<a onclick="document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'" href="javascript:void(0)"><img width="30" height="29" border="0" class="close" src="images/x.gif"></a>
+<iframe width="100%" scrolling="no" height="600" frameborder="0" allowtransparency="true" style="border: 0px; overflow:hidden; margin: 0px;" name="yes" src="regint.php">
+</iframe>
+</div>
+ 
+<div class="black_overlay" id="fade"></div>*@
+
+
+@*</body>*@

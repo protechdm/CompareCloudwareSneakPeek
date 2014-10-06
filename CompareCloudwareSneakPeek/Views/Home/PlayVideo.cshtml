@@ -1,0 +1,233 @@
+﻿@model CompareCloudwareSneakPeak.Models.SneakPeekVideoModel
+
+@using System.Configuration;
+
+<script>
+    $(document).ready(function () {
+
+        //debugger;
+        var videoDialog = $("#dialog-play-video");
+        //debugger;
+        var isLive = $("#isLive").val();
+        if (isLive.toUpperCase() == "FALSE") {
+            window.location.href = "http://www.comparecloudware.co.uk";
+        }
+
+        // Initialize my dialog
+        $("#dialog-play-video").dialog({
+            create: function (event, ui) {
+                var widget = $(this).dialog("widget");
+                //$(".ui-dialog-titlebar-close span", widget).removeClass("ui-icon-closethick").addClass("ui-icon-calculator");
+            },
+            autoOpen: false,
+            modal: true,
+            width: 590,
+            height: 620,
+            resizable: false,
+            draggable: false,
+            closeText: null,
+            //position: "right-170 top+40",
+            position: "center",
+            open: function (event, ui) {
+                // Enable validation for unobtrusive stuffs
+                //$(this).load(options.url, function () {
+                //var theform = $('#uploadImageForm');
+                //var theform = $('#registerApplicationForm');
+                //$(this).appendTo($('#myform'));
+                //$(this).parent().appendTo($('#registerApplicationForm'));
+                //$(this).parent.empty();
+                //var $jQval = $.validator;
+                //$jQval.unobtrusive.parse($(this));
+                //var updateTargetId = "";
+                //var updateUrl = "";
+                //wireUpForm(this, updateTargetId, updateUrl);
+                //});
+
+            },
+            close: function (event, ui) {
+                window.location.href = "http://www.comparecloudware.co.uk";
+                $("#dialog-play-video").dialog("open");
+                return false;
+            }
+        });
+
+
+        //fires when the upload logo button is clicked
+        $('body').on('click', '#registerButton', function () {
+
+            //alert("IN");
+            //debugger;
+            //if ($('#dialog-upload-image').valid()) {
+            //var test = $('#dialog-upload-image');
+            //var serialize1 = $('#dialog-upload-image').serialize();
+            //var serialize1 = $('.ui-dialog').serialize();
+            //var serialize1 = $('#registerApplicationForm').serialize();
+            //var serialize1 = $('#uploadVideoForm').serialize();
+            //var fileName = $('.file').val();
+            //data: serialize1 + "&refreshResults=" + refresh + "&sortColumn=" + sortColumn + "&currentSortOrder=" + currentSortOrder,
+            //setLoading(true);
+            //$(videoDialog).dialog('close');
+
+            $.ajax({
+                url: 'Register',
+                type: 'POST',
+                //data: serialize1,
+                //contentType:attr("enctype", "multipart/form-data"),
+                //contentType: 'multipart/form-data',
+                //The request was a success.
+                success: function (data) {
+                    //debugger;
+                    window.location.href = "http://www.comparecloudware.co.uk";
+                },
+                error: function (data) {
+                    //debugger;
+                }
+            });
+            //}
+        });
+
+
+
+        $("#dialog-play-video").dialog("open");
+
+
+        if (!Modernizr.borderradius) {
+            try {
+                //alert("xNO RADIUS");
+                //                $.getScript("/Scripts/jquery.corner.js", function () {
+                //                    $("#tabs-4").corner();
+                //                    $("#tabs-5").corner();
+                //                    alert("CORNERED");
+                //                });
+
+                //$('div.demo, div.inner, li').each(function () {
+                $('.ui-dialog .ui-corner-all').each(function () {
+                    //var t = $('p', this).text();
+                    //eval(t);
+                    //$(this).corner();
+                    //alert("Programmatically rounding corners for " + $(this).id);
+                });
+
+            }
+            catch (e) {
+                //alert("ERROR");
+
+            }
+        }
+
+    });
+</script>
+
+    <script type="text/javascript">
+    </script>
+
+<div class="play-video-container" id="dialog-play-video" title="" style="display:none">
+
+@using (Html.BeginForm("UploadVideo", "Vendor", FormMethod.Post, new { enctype = "multipart/form-data", id = "uploadVideoForm" }))
+{
+    string videoTitleText = ConfigurationManager.AppSettings["VideoTitleText"];
+    string videoText = ConfigurationManager.AppSettings["VideoText"];
+    string IsLive = ConfigurationManager.AppSettings["IsLive"];
+
+    <input type="hidden" id="isLive" value="@IsLive" />
+@*    <div class="dummy-container-div">*@
+    
+    <div id="video-cut">@Html.Partial("VideoContainer")</div>
+    <div class="video-text">
+
+        @if (Model.VideoType == 1)
+        {
+        <div class="video-text-header-users">
+            
+        </div>
+        }
+        @if (Model.VideoType == 2)
+        {
+        <div class="video-text-header-providers">
+            
+        </div>
+        }
+        <div class="video-text-title-users">
+            <label class="font-bold-13px-black search-result-header line-height-150">@videoTitleText</label>
+        </div>
+        <div class="video-text-and-button-users">
+            <div class="video-text-users">
+                <label class="font-normal-11px-black search-result-header line-height-150">@videoText</label>
+            </div>
+            <div class="video-button-users">
+            <div class="site-button" id="uploadImageButton" style="float:right;">
+                    @if (ViewBag.JavaScriptEnabled)
+                    {
+                    <img src="@Url.Content("~/Images/Buttons/REGISTER_Button.jpg")" name="@Html.Encode("REGISTER_BUTTON")" id = "registerButton"/>
+                    }
+                    else
+                    {
+                    <input type="image" src="@Url.Content("~/Images/Buttons/1x1-transparent.png")" value="Register" name="@Html.Encode("REGISTER_BUTTON")"/>
+                    }
+
+            </div>
+            
+            </div>
+        </div>
+
+    </div>
+@*    </div>*@
+}
+</div>
+
+<noscript>
+<div class="play-video-container" id="dialog-play-video-noscript" title="">
+@using (Html.BeginForm("SneakPeek", "Home", FormMethod.Post))
+{
+    string videoTitleText = ConfigurationManager.AppSettings["VideoTitleText"];
+    string videoText = ConfigurationManager.AppSettings["VideoText"];
+    string IsLive = ConfigurationManager.AppSettings["IsLive"];
+
+    <input type="hidden" id="isLive" value="@IsLive" />
+@*    <div class="dummy-container-div">*@
+    
+    <div id="video-cut">@Html.Partial("VideoContainer")</div>
+    <div class="video-text">
+
+        @if (Model.VideoType == 1)
+        {
+        <div class="video-text-header-users">
+            
+        </div>
+        }
+        @if (Model.VideoType == 2)
+        {
+        <div class="video-text-header-providers">
+            
+        </div>
+        }
+        
+        <div class="video-text-title-users">
+            <label class="font-bold-13px-black search-result-header line-height-150">@videoTitleText</label>
+        </div>
+        <div class="video-text-and-button-users">
+            <div class="video-text-users">
+                <label class="font-normal-11px-black search-result-header line-height-150">@videoText</label>
+            </div>
+            <div class="video-button-users">
+            <div class="site-button" id="uploadImageButton" style="float:right;width:100%;">
+                <img style="display:none;" src="@Url.Content("~/Images/Buttons/REGISTER_Button.jpg")" name="@Html.Encode("REGISTER_BUTTON")" id="registerButton"/>
+                <noscript>
+                    <div style="position:relative;width:100%;top:-10px;">
+                        <input type="image" src="@Url.Content("~/Images/Buttons/1x1-transparent.png")" value="Register" name="@Html.Encode("REGISTER_BUTTON")"/>
+                    </div>
+                </noscript>
+            </div>
+            
+            </div>
+        
+        </div>
+
+        <div style="clear:both;height:20px;"></div>
+    </div>
+
+@*    </div>*@
+}
+</div>
+
+</noscript>

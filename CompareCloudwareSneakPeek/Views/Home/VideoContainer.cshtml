@@ -1,0 +1,223 @@
+﻿@model CompareCloudwareSneakPeak.Models.SneakPeekVideoModel
+@using System.Configuration;
+@using CompareCloudwareSneakPeak.Models;
+@using Microsoft.Web.Helpers;
+
+<div id="videoContainer">
+
+@*        @Html.HiddenFor(x => x.CloudApplicationVideoDomains.ChosenValue)
+        @Html.HiddenFor(x => x.CloudApplicationVideoExtensions.ChosenValue)
+        @Html.HiddenFor(x => x.CloudApplicationVideoFileFormat)
+        @Html.HiddenFor(x => x.CloudApplicationVideoFileName)
+        @Html.HiddenFor(x => x.CloudApplicationVideoURL)
+        @Html.HiddenFor(x => x.IsBrokenLink)
+        @Html.HiddenFor(x => x.IsLocalDomain)
+        @Html.HiddenFor(x => x.IsYouTubeStream)
+        @Html.HiddenFor(x => x.ReadyToPlay)*@
+<table style="width:100%">
+    <tr>
+        <td>
+            <script>
+                $(document).ready(function () {
+                    var v = document.getElementById("movie");
+                    if (v != null) {
+                        //alert("Found video tag");
+                        if (v.paused) {
+                            //alert("Will play");
+                            v.play();
+                        } else {
+                            //alert("Will pause");
+                            //v.pause();
+                        }
+                    }
+                    else {
+                        //alert("No video tag");
+                    }
+                });
+
+                var v = document.getElementById("movie");
+                if (v != null) {
+                    v.onclick = function () {
+                        if (v.paused) {
+                            v.play();
+                        } else {
+                            v.pause();
+                        }
+                    };
+                }
+            </script>
+            @{bool debugMode = Convert.ToBoolean(ConfigurationManager.AppSettings["DebugMode"]);}
+            @{string videosFolder = ConfigurationManager.AppSettings["VideosFolder"];}
+            @{SneakPeekVideoModel video = Model;}
+            @{string videoWidth = ConfigurationManager.AppSettings["VideoWidth"];}
+            @{string videoHeight = ((int)(Convert.ToDecimal(videoWidth) * Convert.ToDecimal(ConfigurationManager.AppSettings["HeightToWidthFactor"]))).ToString() + "px";}
+            @{videoWidth += "px";}
+            @if (video.ReadyToPlay)
+            {
+
+                var url = "";
+                if (video.IsLocalDomain)
+                {
+                    url = "http://" + Request.Url.Authority + Request.ApplicationPath + (Request.ApplicationPath.EndsWith("/") ? "" : "/") + videosFolder + video.SneakPeekVideoFileName;
+                    //url = "../Images/Videos/" + video.SneakPeekVideoFileName;
+                }
+                else
+                {
+                    url = "http://" + video.SneakPeekVideoURL;
+                }
+                var MIMEType = video.SneakPeekVideoFileFormat.ToLowerInvariant();
+                var useVideoTag = false;
+                var useFallBackToFlashContainer = false;
+                var useFallBackToQuickTimeContainer = false;
+                if (
+                                !video.IsYouTubeStream &&
+                                video.SneakPeekVideoFileFormat.ToUpperInvariant() != "SWF" &&
+                                video.SneakPeekVideoFileFormat.ToUpperInvariant() != "MOV" &&
+                                video.SneakPeekVideoFileFormat != null &&
+                                (video.SneakPeekVideoFileFormat.ToUpperInvariant() != "MP4" || (video.SneakPeekVideoFileFormat.ToUpperInvariant() == "MP4" && Model.CustomSession.DetectedBrowser.ToUpperInvariant() != "FIREFOX")) &&
+                                Model.CustomSession.DetectedBrowserID.ToUpperInvariant() != "IE8" &&
+                                Model.CustomSession.DetectedBrowserID.ToUpperInvariant() != "IE7" 
+                                //&&
+                                //(
+                                //    (Model.CustomSession.DetectedBrowserID.ToUpperInvariant() != "SAFARI3TO4" && !Model.CustomSession.DetectedBrowserIsAPhone) 
+                                //    || 
+                                //    (Model.CustomSession.DetectedBrowserID.ToUpperInvariant() == "SAFARI4" && Model.CustomSession.DetectedBrowserIsAPhone)
+                                //)
+                    )
+                {
+                    useVideoTag = true;
+                }
+
+                if (video.SneakPeekVideoFileFormat.ToUpperInvariant() == "MP4" && (Model.CustomSession.DetectedBrowser.ToUpperInvariant() == "FIREFOX" || Model.CustomSession.DetectedBrowserID.ToUpperInvariant() == "IE7" || Model.CustomSession.DetectedBrowserID.ToUpperInvariant() == "IE8")
+                    //|| video.CloudApplicationVideoFileFormat.ToUpperInvariant() == "SWF"
+                                )
+                {
+                    useFallBackToFlashContainer = true;
+                }
+
+                if (video.SneakPeekVideoFileFormat.ToUpperInvariant() == "MOV")
+                {
+                    useFallBackToQuickTimeContainer = true;
+                }
+
+                if (Model.CustomSession.DetectedBrowserID.ToUpperInvariant() == "SAFARI3TO4" && !Model.CustomSession.DetectedBrowserIsAPhone && !Model.CustomSession.DetectedBrowserIsAnIPAD)
+                {
+                    //RICH's desktop needs HTML5 video tag
+                    useFallBackToQuickTimeContainer = false;
+                    useVideoTag = true;
+                }
+
+                if (Model.CustomSession.DetectedBrowserID.ToUpperInvariant() == "SAFARI3TO4" && (Model.CustomSession.DetectedBrowserIsAPhone || Model.CustomSession.DetectedBrowserIsAnIPAD))
+                {
+                    //IPADS & IPHONES need QuickTime container
+                    useFallBackToQuickTimeContainer = true;
+                    useVideoTag = false;
+                }
+
+                //if (Model.CustomSession.DetectedBrowserID.ToUpperInvariant() == "SAFARI4")
+                //{
+                //    useVideoTag = false;
+                //    useFallBackToQuickTimeContainer = true;
+                //}
+
+                if (debugMode)
+                {
+                        <div style="position:relative;">
+                            <label class="font-bold-13px-black">BROWSER : @Model.CustomSession.DetectedBrowserID.ToUpperInvariant()</label>
+                            <label class="font-bold-13px-black">USE FLASH CONTAINER : @useFallBackToFlashContainer.ToString()</label>
+                            <label class="font-bold-13px-black">USE QUICKTIME CONTAINER : @useFallBackToQuickTimeContainer.ToString()</label>
+                            <label class="font-bold-13px-black">USE HTML5 VIDEO TAG : @useVideoTag.ToString()</label>
+                            <label class="font-bold-13px-black">REQUEST IS FROM A PHONE : @Model.CustomSession.DetectedBrowserIsAPhone.ToString()</label>
+                            <label class="font-bold-13px-black">REQUEST IS FROM AN IPAD : @Model.CustomSession.DetectedBrowserIsAnIPAD.ToString()</label>
+                        </div>
+                }
+                
+                if (useVideoTag)
+                {
+                @:<div class="video-documents" style="float: left;">
+                <video id="movie" width="@videoWidth" height="@videoHeight" autoplay preload controls> 
+                @if (video.SneakPeekVideoFileFormat.ToUpperInvariant() == "WEBM")
+                { 
+@*                    <source src="@Url.Content("~/" + videosFolder + video.CloudApplicationVideoFileName)"
+                        type="video/webm; codecs=vp8,vorbis" />*@ 
+                    <source src="@url" type="video/webm; codecs=vp8,vorbis" /> 
+
+                }
+                else if (video.SneakPeekVideoFileFormat.ToUpperInvariant() == "OGV")
+                { 
+@*                    <source type="video/ogg; codecs=theora,vorbis" src="../Images/Videos/pr6.ogv"/>*@
+                    <source type="video/ogg; codecs=theora,vorbis" src="@url"/>
+                }
+                else if (video.SneakPeekVideoFileFormat.ToUpperInvariant() == "MP4" &&
+                    Model.CustomSession.DetectedBrowser.ToUpperInvariant() != "FIREFOX")
+                { 
+@*                    <source src="../Images/Videos/pr6.mp4" />*@ 
+                    <source src="@url" type="video/mp4"/> 
+                } 
+                </video> 
+                @:</div>                         
+            }
+
+                if (useFallBackToFlashContainer)
+                {
+                @:<div class="video-documents" style="float: left;">
+                <object data="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf" width="@videoWidth" type="application/x-shockwave-flash" height="@videoHeight"> 
+                <param name="movie" value="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf" /> 
+                <param name="allowfullscreen" value="true" /> 
+                <param name="flashvars" value="config={'clip':{'url':'@url','autoPlay':true,'autoBuffering':true}}" /> 
+                <embed width="100%" height="100%" name="plugin" src="@url" type="video/@MIMEType" />
+                </object> 
+                @:</div>
+            }
+
+                if (useFallBackToQuickTimeContainer)
+                {
+                @:<div class="video-documents" style="float: left;">
+                <object width="@videoWidth" height="@videoHeight" classid="clsid:02BF25D5-8C17-4B23-BC80-D3488ABDDC6B" codebase="http://www.apple.com/qtactivex/qtplugin.cab">
+                <param name="src" value="@url" /> 
+                <param name="href" value="@url" /> 
+                <param name="target" value="myself" /> 
+                <param name="controller" value="true" /> 
+                <param name="autoplay" value="true" /> 
+@*                <param name="scale" value="aspect" />*@ 
+                <param name="scale" value="tofit" /> 
+                <param name="allowFullScreen" value="true" /> 
+                <embed width="@videoWidth" height="@videoHeight" type="video/quicktime" pluginspage="http://www.apple.com/quicktime/download/" src="@url" href="@url" target="myself" controller="true" autoplay="true" scale="tofit" allowFullScreen="true"></embed> 
+                </object> 
+                @:</div>                         
+            }
+
+                if (video.IsYouTubeStream)
+                {
+                @Video.Flash(path: video.SneakPeekVideoURL,
+                                              width: @videoWidth,
+                                              height: @videoHeight,
+                                     play: true,
+                                     loop: true,
+                                     menu: true,
+                                     bgColor: "red",
+                                     quality: "medium",
+                                     scale: "exactfit",
+                                     windowMode: "transparent")
+                }
+                if (video.SneakPeekVideoFileFormat.ToUpperInvariant() == "SWF")
+                {
+                @Video.Flash(path: url,
+                                              width: @videoWidth,
+                                              height: @videoHeight,
+                                     play: true,
+                                     loop: true,
+                                     menu: true,
+                                     bgColor: "red",
+                                     quality: "medium",
+                                     scale: "exactfit",
+                                     windowMode: "transparent",
+                                     htmlAttributes: "allowfullscreen=true"
+                                     )
+                }
+            }
+        </td>
+    </tr>
+</table>
+</div>
+

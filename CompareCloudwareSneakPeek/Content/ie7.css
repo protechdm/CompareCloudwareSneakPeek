@@ -1,0 +1,27 @@
+﻿/* BUMP THE DIV UPWARDS SO THE TITLE BAR OVERLAYS ON THE TITLE BAR .search-page-title-bar */
+/* margin-top MUST BE THE EQUIVALENT OF THE HEIGHT OF search-page-title-bar */
+.search-result-page-div
+{
+    width:65%;
+    overflow:auto;
+    height:auto;
+    /*z-index:0;       */
+    margin-top:-49px;
+    /*margin-top:0px;*/
+    float:left;
+}
+
+.ui-dialog .ui-dialog-content
+{
+    overflow:visible;
+}
+
+.ui-dialog .ui-dialog-titlebar-close
+{
+    margin: -12px -10px 0;
+    /*margin: 0px -10px 0;*/
+    outline: none;
+    top: -12px;*/
+    /*background-color:#000000;*/
+    /*color:#000000;*/
+}
